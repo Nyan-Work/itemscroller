@@ -1,6 +1,8 @@
 package fi.dy.masa.itemscroller.mixin;
 
 import javax.annotation.Nullable;
+
+import net.minecraft.client.gui.DrawContext;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -9,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.MerchantScreen;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.MerchantScreenHandler;
 import net.minecraft.text.Text;
@@ -138,7 +139,7 @@ public abstract class MixinMerchantScreen extends HandledScreen<MerchantScreenHa
 
     @Inject(method = "render", at = @At(value = "FIELD",
             target = "Lnet/minecraft/client/gui/screen/ingame/MerchantScreen;offers:[Lnet/minecraft/client/gui/screen/ingame/MerchantScreen$WidgetButtonPage;"))
-    private void renderFavoriteMarker(MatrixStack matrices, int mouseX, int mouseY, float delta, CallbackInfo ci)
+    private void renderFavoriteMarker(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci)
     {
         if (Configs.Toggles.VILLAGER_TRADE_FEATURES.getBooleanValue())
         {
