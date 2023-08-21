@@ -1,3 +1,10 @@
+# ⚠️This is a third-party port, currently based on old code, so if you find any bugs, please do not report them to Masa.⚠️
+
+Jitpack support
+===================
+The branch artifacts support fetching from jitpack: https://jitpack.io/#Nyan-Work/itemscroller
+
+
 Item Scroller
 ==============
 Item Scroller is a Minecraft mod that adds various convenience features for moving items
